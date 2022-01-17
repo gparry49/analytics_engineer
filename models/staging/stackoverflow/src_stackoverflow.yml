@@ -6,11 +6,150 @@ sources:
     database: bigquery-public-data
     schema: stackoverflow
     tables:
+      - name: badges
+        description: Raw data from the SO badges table
+        columns:
+          - name: id
+            description: Primary Key for badges
+            tests:
+              - unique
+              - not_null
+          - name: user_id
+            description: the user_id (foreign key) of the badge holder
+            tests:
+              - not_null
+
+      - name: comments
+        description: Raw data for the SO comments table
+        columns:
+          - name: id
+            description: Primary Key for comments
+            tests:
+              - unique
+              - not_null
+
+      - name: post_history
+        description: Raw data for the SO post_history table
+        columns:
+          - name: id
+            description: Primary Key for comments
+            tests:
+              - unique
+              - not_null
+
+      - name: post_links
+        description: Raw data for the SO post_links table
+        columns:
+          - name: id
+            description: Primary Key for comments
+            tests:
+              - unique
+              - not_null
+
+      - name: posts_answers
+        description: Raw data for the SO posts_answers table
+        columns:
+          - name: id
+            description: Primary Key for comments
+            tests:
+              - unique
+              - not_null
+
+      - name: posts_moderator_nomination
+        description: Raw data for the SO posts_moderator_nomination table
+        columns:
+          - name: id
+            description: Primary Key for comments
+            tests:
+              - unique
+              - not_null
+
+      - name: posts_orphaned_tag_wiki
+        description: Raw data for the SO posts_orphaned_tag_wiki table
+        columns:
+          - name: id
+            description: Primary Key for comments
+            tests:
+              - unique
+              - not_null
+
+      - name: posts_privilege_wiki
+        description: Raw data for the SO posts_privilege_wiki table
+        columns:
+          - name: id
+            description: Primary Key for comments
+            tests:
+              - unique
+              - not_null
+           
       - name: posts_questions
         description: Raw data from the SO posts_questions table
         columns:
           - name: id
             description: Primary Key for posts_questions
+            tests:
+              - unique
+              - not_null
+           
+      - name: posts_tag_wiki
+        description: Raw data from the SO posts_tag_wiki table
+        columns:
+          - name: id
+            description: Primary Key for posts_tag_wiki
+            tests:
+              - unique
+              - not_null
+           
+      - name: posts_tag_wiki_excerpt
+        description: Raw data from the SO posts_tag_wiki_excerpt table
+        columns:
+          - name: id
+            description: Primary Key for posts_tag_wiki_excerpt
+            tests:
+              - unique
+              - not_null
+           
+      - name: posts_wiki_placeholder
+        description: Raw data from the SO posts_wiki_placeholder table
+        columns:
+          - name: id
+            description: Primary Key for posts_wiki_placeholder
+            tests:
+              - unique
+              - not_null
+           
+      - name: stackoverflow_posts
+        description: Raw data from the SO stackoverflow_posts table
+        columns:
+          - name: id
+            description: Primary Key for stack_overflow_posts
+            tests:
+              - unique
+              - not_null
+           
+      - name: tags
+        description: Raw data from the SO tags table
+        columns:
+          - name: id
+            description: Primary Key for tags
+            tests:
+              - unique
+              - not_null
+
+      - name: users
+        description: Information about SO users
+        columns:
+          - name: id
+            description: Primary Key for Users
+            tests:
+              - unique
+              - not_null
+
+      - name: votes
+        description: Raw data from SO votes table
+        columns:
+          - name: id
+            description: Primary Key for votes
             tests:
               - unique
               - not_null
