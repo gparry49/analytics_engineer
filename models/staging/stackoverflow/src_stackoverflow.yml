@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: stackoverflow
+    description: A clone of the Stackoverflow Big Query public dataset
+    database: bigquery-public-data
+    schema: stackoverflow
+    tables:
+      - name: posts_questions
+        description: Raw data from the SO posts_questions table
+        columns:
+          - name: id
+            description: Primary Key for posts_questions
+            tests:
+              - unique
+              - not_null
+
