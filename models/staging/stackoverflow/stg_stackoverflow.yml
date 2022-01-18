@@ -39,5 +39,14 @@ models:
   - name: stg_votes
     description: A staging table of SO votes table
 
-  - name: stg_bages
+  - name: stg_badges
     description: A staging table of SO badges table
+
+  - name: stg_posts_questions
+    description: A staging table for SO posts_questions table
+
+  - name: stg_tags
+    description: A staging table for SO tags table
+
+  - name: stg_users
+    description: A staging table for SO users table

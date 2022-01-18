@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: dim_tag
+    description: A dimension table with info about post tags
+    columns:
+      - name: tag_name
+        description: The string for each tag
+      - name: count
+        description: The count of the number of times the tag has been used
+
+  - name: dim_users
+    description: A dimension table with info about the users of SO
+    columns:
+      - name: id
+        description: Unique User ID
+      - name: creation_date
+        description: The date the user account was created
+      - name: reputation
+        description: The reputation of a user
+      - name: up_votes
+        description: The number of upvotes the user has recieved
+      - name: down_votes
+        description: The number of down votes a user has recieved        
+
+  - name: dim_vote_type
+    description: A dimension table with info about the votes on posts in SO
+    columns:
+      - name: vote_type_id
+        description: The id of a type of vote
+      - name: vote_type_name
+        description: The description of a type of vote

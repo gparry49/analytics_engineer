@@ -1,6 +1,19 @@
 version: 2
 
 sources:
+  - name: dbt_gparry49
+    description: To locate source tables in dbt_gparry49 (generated from seeds)
+    database: rittman-dbt
+    schema: dbt_gparry49
+    tables:
+      - name: src_vote_type
+        description: Source for a dim table with ids for vote types
+        columns:
+          - name: vote_type_id
+            description: Unique id for vote type
+          - name: vote_type_name
+            description: Text name for vote type
+            
   - name: stackoverflow
     description: A clone of the Stackoverflow Big Query public dataset
     database: bigquery-public-data
