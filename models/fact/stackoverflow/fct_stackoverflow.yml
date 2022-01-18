@@ -40,8 +40,8 @@ models:
     columns:
       - name: id_surrogate_key
         description: surrogate key for unnested view
-      - name: array_tags
-        description: An array of tage generated using SPLIT from the tags column
+      #- name: array_tags
+      #  description: An array of tage generated using SPLIT from the tags column
       - name: single_tag
         description: A single tage created using the UNNEST function
 
