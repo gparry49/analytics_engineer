@@ -8,6 +8,8 @@ with convert_tags_to_array as (
 
 select
     GENERATE_UUID() as id_surrogate_key,
-    *
+    id,
+    array_tags,
+    single_tag
 from convert_tags_to_array,
 UNNEST(array_tags) as single_tag

@@ -1,3 +1,4 @@
+
 version: 2
 
 models:
@@ -35,12 +36,8 @@ models:
       - name: view_count
         description: The number of views on the post
 
-  - name: stg_stackoverflow_posts_unnested
-    description: Creates a copy of stg_stackoverflow_posts with a column unnested/exploded to add have a row for each tag
-    columns:
-      - name: id_surrogate_key
-        description: surrogate key for unnested view
-      - name: array_tags
-        description: An array of tage generated using SPLIT from the tags column
-      - name: single_tag
-        description: A single tage created using the UNNEST function
+  - name: stg_votes
+    description: A staging table of SO votes table
+
+  - name: stg_bages
+    description: A staging table of SO badges table
