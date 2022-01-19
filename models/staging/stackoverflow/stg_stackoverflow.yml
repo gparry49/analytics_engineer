@@ -1,0 +1,52 @@
+
+version: 2
+
+models:
+  - name: stg_stackoverflow_posts
+    description: A staging table of SO post with selected columns and posts with 0 answers
+    columns:
+      - name: id
+        description: Primary Key for posts table (tested in source tables)
+        tests:
+          - unique
+          - not_null
+      - name: post_title
+        description: The title of the post
+      - name: answer_count
+        description: Number of answers to the post
+        tests:
+          - accepted_values:
+              values:
+                - 0
+              quote: false
+      - name: comment_count
+        description: Number of comments on the post
+      - name: creation_date
+        description: The date the post was created
+        tests:
+          - not_null
+      - name: favorite_count
+        description: The number of favourites on the post
+      - name: owner_user_id
+        description: The user ID of the post owner
+      - name: score
+        description: The score of the post
+      - name: tags
+        description: The tags selected on the post
+      - name: view_count
+        description: The number of views on the post
+
+  - name: stg_votes
+    description: A staging table of SO votes table
+
+  - name: stg_badges
+    description: A staging table of SO badges table
+
+  - name: stg_posts_questions
+    description: A staging table for SO posts_questions table
+
+  - name: stg_tags
+    description: A staging table for SO tags table
+
+  - name: stg_users
+    description: A staging table for SO users table

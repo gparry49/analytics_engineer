@@ -1,0 +1,71 @@
+
+version: 2
+
+models:
+  - name: fct_stackoverflow_posts
+    description: Fact table - Creates a table with all the relevant information on a post
+    columns:
+      - name: id
+        description: Primary Key for posts table (tested in source tables)
+        tests:
+          - unique
+          - not_null
+      - name: post_title
+        description: The title of the post
+      - name: answer_count
+        description: Number of answers to the post
+        tests:
+          - accepted_values:
+              values:
+                - 0
+              quote: false
+      - name: comment_count
+        description: Number of comments on the post
+      - name: creation_date
+        description: The date the post was created
+        tests:
+          - not_null
+      - name: favorite_count
+        description: The number of favourites on the post
+      - name: owner_user_id
+        description: The user ID of the post owner
+      - name: score
+        description: The score of the post
+      - name: tags
+        description: The tags selected on the post
+      - name: view_count
+        description: The number of views on the post
+  - name: fct_post_tags
+    description: Fact table - Creates a copy of stg_stackoverflow_posts with a column unnested/exploded to add have a row for each tag
+    columns:
+      - name: id_surrogate_key
+        description: surrogate key for unnested view
+      #- name: array_tags
+      #  description: An array of tage generated using SPLIT from the tags column
+      - name: single_tag
+        description: A single tage created using the UNNEST function
+
+  - name: fct_badges_by_poster
+    description: Creates a table that has the number of badges the owner_user_id of a post had when the post was created
+    columns:
+      - name: id_surrogate_key
+        description: surrogate key
+      - name: id
+        description: foreign key from stg_stackoverflow_posts - is the unique id of a post
+        tests:
+          - not_null
+      - name: num_badges
+        description: The number of badges the user of owner of a post when it was created
+
+  - name: fct_votes_on_post
+    description: Creates a table that records the type and number of vote on each post
+    columns:
+      - name: id_surrogate_key
+        description: surrogate key
+      - name: post_id
+        description: The post id (foreign key) the votes are counted from
+      - name: vote_type_id
+        description: The type of vote
+      - name: num_votes
+        description: The number of votes, of the vote_type_id type, on post post_id
+    

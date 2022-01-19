@@ -1,18 +1,19 @@
-with post_questions as (
-    select
+with questions as (
+
+    select 
         id,
-        title,
+        title as post_title,
         answer_count,
         comment_count,
         creation_date,
         favorite_count,
         owner_user_id,
-        parent_id,
-        post_type_id,
         score,
         tags,
         view_count
-    from {{ source('stackoverflow', 'posts_questions') }}
+
+    from {{ source('stackoverflow', 'stackoverflow_posts') }}
+    where answer_count = 0
 )
 
-select * from post_questions
+select * from questions

@@ -1,18 +1,20 @@
-with post_questions as (
+with posts as (
     select
         id,
-        title,
+        post_title,
         answer_count,
         comment_count,
         creation_date,
         favorite_count,
         owner_user_id,
-        parent_id,
-        post_type_id,
         score,
         tags,
         view_count
-    from {{ source('stackoverflow', 'posts_questions') }}
+    from 
+    {{ ref('stg_stackoverflow_posts') }}
 )
 
-select * from post_questions
+select 
+    *
+from posts
+    
